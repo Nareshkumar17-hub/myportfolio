@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>digital clock</title> 
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body { 
+font-family: "poppins" , sans-serif;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;  
+  background-color : #8B0E18;  
+  
+  
+
+
+
+} 
+
+
+#clock {
+  font-size : 48px ; 
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;   
+  background-color : #8B0E18;   
+  height:300px; 
+  width:300px; 
+  box-shadow: 10px 10px 40px 40px  #FFD700 ; 
+  border-radius:50%; 
+  color: #FFD700; 
+  
+}
+    </style>
+</head>
+<body>
+       <div id="clock"> </div>  
+
+
+
+<script>
+    function clockUpdate () {
+    
+     const clock = document.getElementById("clock") ; 
+     const now = new Date() ;  
+     let hours = now.getHours() ; 
+    let minutes = now.getMinutes() ; 
+    let seconds = now.getSeconds() ; 
+    
+    
+    hours = (hours < 10 ? "0" : "") + hours ; 
+    minutes = (minutes < 10 ? "0" : "") + minutes ; 
+    seconds = (seconds < 10 ? "0" : "") + seconds ; 
+    
+    
+    clock.textContent =  `${hours}:${minutes}:${seconds}` ; 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+} 
+setInterval(clockUpdate ,  1000)  
+
+clockUpdate() ;
+
+</script>
+
+</body>
+</html>

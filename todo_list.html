@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo list</title> 
+    <style>
+        body {
+background-color :white; 
+color: blue;
+font-family: sans-serif; 
+display:flex; 
+justify-content:center;
+} 
+#main {
+  border:1px solid black; 
+  width: 350px; 
+  height:400px; 
+ 
+  overflow-y: scroll; 
+  scrollbar-width:none; 
+  
+}    
+
+#LI {
+  list-style: none;
+}
+
+#LI li {
+ background-color: red; 
+ color:white; 
+ margin:0; 
+ position: relative; 
+ right: 40px; 
+ margin-top: 5px; 
+ margin-left: 10px; 
+ border: 0 ;
+}
+    </style>
+</head>
+<body>
+    <div id="main"> 
+   <input type="text" id="input"> <button id="add">add</button> <button id="clear">clear</button> 
+   <br> 
+   <ul id="LI"></ul> 
+  </div> 
+ <script>
+    const button = document.getElementById("add") ; 
+
+
+  //adding function 
+button.addEventListener("click" , function () {
+    
+    const input = document.getElementById("input").value.trim(); 
+    
+      let saved_task = [] ; 
+     
+    
+    let task = document.createElement("li") ;  
+    saved_task.push(task)
+
+    
+    let list = document.getElementById("LI"); 
+    
+        list.appendChild(task); 
+    task.textContent = input;
+     
+      task.addEventListener("click" , function() {
+          
+          
+          task.style.textDecoration = "line-through" ; 
+          task.style.backgroundColor = "green" ;
+          
+      })
+
+let clear = document.getElementById("clear") ;  
+    
+    clear.addEventListener("click" , function() {
+        task.style.display ="none"
+    })
+     
+    
+    
+document.getElementById("input").value = "";
+    
+     let local =  localStorage.setItem("data" , JSON.stringify(saved_task))
+    
+}); 
+
+ let local =  localStorage.setItem("data" , JSON.stringify(saved_task))
+ </script>
+</body>
+</html>
